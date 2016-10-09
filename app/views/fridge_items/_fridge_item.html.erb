@@ -2,3 +2,4 @@
   <%= fridge_item.name %>
   <%= fridge_item.use_by_date %>
 </p>
+<%= link_to "Delete", fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :delete %>

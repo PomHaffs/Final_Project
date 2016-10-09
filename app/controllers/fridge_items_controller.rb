@@ -7,6 +7,15 @@ class FridgeItemsController < ApplicationController
     redirect_to @fridge
   end
 
+  def destroy
+    @fridge_item = @fridge.fridge_items.find(params[:id])
+    if @fridge_item.destroy
+      flash[:success] = "Fridge item deleted."
+    else flash[:error] = "Fridge item NOT deleted."
+    end
+    redirect_to @fridge
+  end
+
   private
 
   def set_fridge
