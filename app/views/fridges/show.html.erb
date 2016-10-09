@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fridge.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @fridge.description %>
+</p>
+
+<div id="fridge_items_wrapper">
+  <%= render @fridge.fridge_items %>
+  <div id="form">
+    <%= render "fridge_items/form" %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_fridge_path(@fridge) %> |
+<%= link_to 'Back', fridges_path %>
