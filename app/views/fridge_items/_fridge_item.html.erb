@@ -1,5 +1,35 @@
-<p>
-  <%= fridge_item.name %>
-  <%= fridge_item.use_by_date %>
-</p>
-<%= link_to "Delete", fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :delete %>
+<div class="row clearfix ">
+
+    <% if fridge_item.item_used? %>
+    <div class="used">
+        <%= link_to "Mark Item As Used", item_used_fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :patch %>
+    </div>
+
+    <div class="fridge_item">
+        <p style="opacity: 0.4;">
+            <strike><%= fridge_item.name %></strike>
+        </p>
+    </div>
+
+    <div class="bin">
+        <%= link_to "Delete", fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :delete %>
+    </div>
+
+    <% else %>
+
+    <div class="complete">
+        <%= link_to "Mark Item As Used", item_used_fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :patch %>
+    </div>
+
+    <div class="fridge_item">
+        <p>
+            <%= fridge_item.name %>
+        </p>
+    </div>
+
+    <div class="bin">
+        <%= link_to "Delete", fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :delete %>
+    </div>
+
+    <% end %>
+</div>
