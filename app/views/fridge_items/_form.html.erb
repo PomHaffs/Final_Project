@@ -1,6 +1,5 @@
 <%= form_for([@fridge, @fridge.fridge_items.build]) do |f| %>
-  <%= f.text_field :name, placeholder: "New fridge item" %>
-  <br>
+  <%= f.text_field :name, placeholder: "Enter new fridge item" %>
   <%= f.date_select(:use_by_date, :order => [ :day, :month, :year]) %>
   <br>
   <%= f.submit %>

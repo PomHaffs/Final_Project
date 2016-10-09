@@ -56,7 +56,7 @@ class FridgesController < ApplicationController
   def destroy
     @fridge.destroy
     respond_to do |format|
-      format.html { redirect_to fridges_url, notice: 'Fridge was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Fridge was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2 class="fridge_name">
   <%= @fridge.name %>
-</p>
+</h2>
 
-<p>
-  <strong>Description:</strong>
+<p class="fridge_description">
   <%= @fridge.description %>
 </p>
 
@@ -17,5 +15,8 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_fridge_path(@fridge) %> |
-<%= link_to 'Back', fridges_path %>
+<div class="links">
+  <%= link_to 'Edit', edit_fridge_path(@fridge) %> |
+  <%= link_to 'Delete', fridge_path(@fridge), :method => :delete, data: {confirm: "Are you sure?"} %> |
+  <%= link_to 'Back', fridges_path %>
+</div>
