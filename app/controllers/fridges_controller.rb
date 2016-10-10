@@ -1,34 +1,27 @@
 class FridgesController < ApplicationController
   before_action :set_fridge, only: [:show, :edit, :update, :destroy]
 
-  # GET /fridges
-  # GET /fridges.json
   def index
     @fridges = Fridge.all
   end
 
-  # GET /fridges/1
-  # GET /fridges/1.json
   def show
   end
 
-  # GET /fridges/new
   def new
     @fridge = Fridge.new
   end
 
-  # GET /fridges/1/edit
   def edit
   end
 
-  # POST /fridges
-  # POST /fridges.json
   def create
     @fridge = Fridge.new(fridge_params)
+    @fridge.user_id = @current_user.id
 
     respond_to do |format|
       if @fridge.save
-        format.html { redirect_to @fridge, notice: 'Fridge was successfully created.' }
+        format.html { redirect_to user_fridge_path(@current_user, @fridge),  notice: 'Fridge was successfully created.' }
         format.json { render :show, status: :created, location: @fridge }
       else
         format.html { render :new }
@@ -37,8 +30,6 @@ class FridgesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /fridges/1
-  # PATCH/PUT /fridges/1.json
   def update
     respond_to do |format|
       if @fridge.update(fridge_params)
@@ -51,8 +42,6 @@ class FridgesController < ApplicationController
     end
   end
 
-  # DELETE /fridges/1
-  # DELETE /fridges/1.json
   def destroy
     @fridge.destroy
     respond_to do |format|

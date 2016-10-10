@@ -1,0 +1,10 @@
+<h1><%= @user.name %></h1>
+
+<% if @current_user && @current_user.id == @user.id %>
+
+  <div class="links">
+    <%= link_to "Edit", edit_user_path() %>|
+    <%= link_to "Delete Account", user_path( @user.id ), :method => :delete %>
+  </div>
+
+<% end %>

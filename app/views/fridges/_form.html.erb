@@ -1,7 +1,7 @@
-<%= form_for(@fridge) do |f| %>
+<%= form_for([@current_user, @fridge]) do |f| %>
   <% if @fridge.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@fridge.errors.count, "error") %> prohibited this fridge from being saved:</h2>
+      <h2><%= pluralize(@fridge.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
       <% @fridge.errors.full_messages.each do |message| %>
@@ -22,4 +22,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

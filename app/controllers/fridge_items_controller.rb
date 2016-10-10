@@ -5,7 +5,7 @@ class FridgeItemsController < ApplicationController
   def create
     @fridge_item = @fridge.fridge_items.create(fridge_item_params)
 
-    redirect_to @fridge
+    redirect_to user_fridge_path(@fridge.user, @fridge)
   end
 
   def destroy
@@ -13,7 +13,7 @@ class FridgeItemsController < ApplicationController
       flash[:success] = "Fridge item deleted."
     else flash[:error] = "Fridge item NOT deleted."
     end
-    redirect_to @fridge
+    redirect_to user_fridge_path(@fridge.user, @fridge)
   end
 
   def item_used

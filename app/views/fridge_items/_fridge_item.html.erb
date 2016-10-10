@@ -2,7 +2,7 @@
 
     <% if fridge_item.item_used? %>
     <div class="used">
-        <%= link_to item_used_fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :patch do %>
+        <%= link_to item_used_user_fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :patch do %>
         <i style="opacity: 0.4;" class="fa fa-check"></i>
         <% end  %>
     </div>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="bin">
-        <%= link_to fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :delete do %>
+        <%= link_to user_fridge_fridge_item_path( @fridge.user, @fridge, fridge_item.id ), :method => :delete do %>
             <i class="fa fa-trash"></i>
         <% end %>
     </div>
@@ -23,7 +23,7 @@
     <% else %>
 
     <div class="used">
-        <%= link_to item_used_fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :patch do %>
+        <%= link_to item_used_user_fridge_fridge_item_path(@fridge.user, @fridge, fridge_item.id ), :method => :patch do %>
         <i class="fa fa-check"></i>
         <% end  %>
     </div>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="bin">
-        <%= link_to fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :delete do %>
+        <%= link_to user_fridge_fridge_item_path( @fridge.user, @fridge, fridge_item.id ), :method => :delete do %>
             <i class="fa fa-trash"></i>
         <% end %>
     </div>
