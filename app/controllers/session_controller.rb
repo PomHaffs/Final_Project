@@ -9,7 +9,7 @@ class SessionController < ApplicationController
       if user.present? && user.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:notice] = "User created!"
-        redirect_to root_path
+        redirect_to user_fridges_path(user)
       else
         flash[:error] = "User could not be created!"
         redirect_to login_path
