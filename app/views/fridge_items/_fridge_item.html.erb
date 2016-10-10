@@ -2,7 +2,7 @@
 
     <% if fridge_item.item_used? %>
     <div class="used">
-        <%= link_to item_used_user_fridge_fridge_item_path( @fridge, fridge_item.id ), :method => :patch do %>
+        <%= link_to item_used_user_fridge_fridge_item_path( @fridge.user, @fridge, fridge_item.id ), :method => :patch do %>
         <i style="opacity: 0.4;" class="fa fa-check"></i>
         <% end  %>
     </div>

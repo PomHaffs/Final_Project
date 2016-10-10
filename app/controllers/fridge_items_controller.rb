@@ -18,7 +18,7 @@ class FridgeItemsController < ApplicationController
 
   def item_used
     @fridge_item.update_attribute(:item_used, Time.now)
-    redirect_to @fridge, notice: "Item now used"
+    redirect_to user_fridge_path(@fridge.user, @fridge), notice: "Item now used"
   end
 
   private

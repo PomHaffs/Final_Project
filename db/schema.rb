@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161010051351) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "fridge_items", force: :cascade do |t|
     t.string   "name"
     t.date     "use_by_date"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20161010051351) do
     t.date     "item_used"
   end
 
-  add_index "fridge_items", ["fridge_id"], name: "index_fridge_items_on_fridge_id"
+  add_index "fridge_items", ["fridge_id"], name: "index_fridge_items_on_fridge_id", using: :btree
 
   create_table "fridges", force: :cascade do |t|
     t.string   "name"
@@ -41,4 +44,5 @@ ActiveRecord::Schema.define(version: 20161010051351) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "fridge_items", "fridges"
 end
