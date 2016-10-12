@@ -8,8 +8,12 @@ class FridgesController < ApplicationController
     @recipe_data = @user.get_recipes( @items )
   end
 
+  def send( callback_type = "" )
+    UserMail.send_recipe(User.find(params[:user_id]), @recipe_data).deliver_now
+  end
+
   def index
-    @fridges = Fridge.all
+    @fridges = @current_user.fridges
   end
 
   def show
