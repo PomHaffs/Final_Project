@@ -1,0 +1,13 @@
+<h1>This should be the display page for recipes</h1>
+
+<% @recipe_data.each do |item| %>
+
+  <p><%= link_to item[:name], item[:link]  %></p>
+  <!-- <p><%= item[:link] %></p> -->
+  <img src="<%= item[:image_link] %>">
+<!-- link_to 'Edit', edit_user_fridge_path(@fridge.user, @fridge) -->
+<% end %>
+
+<% @items %>
+
+<img src="" alt="">

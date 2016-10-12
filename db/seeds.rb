@@ -41,9 +41,9 @@ Fridge.destroy_all
 f1 = Fridge.create :name => "TEST", :description => "TEST DESCRIPTION"
 
 FridgeItem.destroy_all
-i1 = FridgeItem.create :name => "HAM", :use_by_date => "12/12/2016"
-i2 = FridgeItem.create :name => "EGGS", :use_by_date => "12/12/2016"
-i3 = FridgeItem.create :name => "HEAD", :use_by_date => "12/12/2016"
+i1 = FridgeItem.create :name => "HAM", :use_by_date => "14/10/2016"
+i2 = FridgeItem.create :name => "EGGS", :use_by_date => "15/10/2016"
+i3 = FridgeItem.create :name => "POTATOES", :use_by_date => "16/10/2016"
 
 u1.fridges << f1
 

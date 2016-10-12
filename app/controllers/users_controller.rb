@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "User was successfully created"
-      UserMail.welcome(@user).deliver_now
+      UserMail.intro(@user).deliver_now
       redirect_to user_fridges_path(@user)
     else
       flash[:error] = "The lens cap is on"

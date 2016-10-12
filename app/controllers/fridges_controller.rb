@@ -1,6 +1,13 @@
 class FridgesController < ApplicationController
   before_action :set_fridge, only: [:show, :edit, :update, :destroy]
 
+  def display # /fridges/:fridge_id/display
+    @fridge = Fridge.find(params[:fridge_id])
+    @items = @fridge.fridge_items.limit(3).sort { |i| i.use_by_date }.reverse.map { |i| i.name }
+    @user = User.find(params[:user_id])
+    @recipe_data = @user.get_recipes( @items )
+  end
+
   def index
     @fridges = Fridge.all
   end
@@ -56,7 +63,6 @@ class FridgesController < ApplicationController
       @fridge = Fridge.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def fridge_params
       params.require(:fridge).permit(:name, :description)
     end

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
+  get 'users/:user_id/fridges/:fridge_id/display' => 'fridges#display'
+
   resources :users do
     resources :fridges do
       resources :fridge_items do

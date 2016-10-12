@@ -32,7 +32,7 @@ class FridgeItemsController < ApplicationController
     end
 
     def fridge_item_params
-      params[:fridge_item].permit(:name, :use_by_date)
+      params[:fridge_item].permit(:name, :use_by_date, )
     end
 
 end
