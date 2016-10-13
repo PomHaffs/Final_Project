@@ -1,23 +1,21 @@
 <p>Hi <%= @user.name %>,<p>
-<br>
+  <br>
 <p>These are the next three item to go out of date:</p>
-<hr>
+  <hr>
 <ul>
   <li><%= @items[0] %></li>
   <li><%= @items[1] %></li>
   <li><%= @items[2] %></li>
 </ul>
-<br>
+  <br>
 <p>And here is what you could do with them...</p>
-<br>
+  <br>
 <p><% @recipe_data.each do |item| %></p>
 <br>
   <%= link_to item[:name], item[:link]  %>
-  <!-- <p><%= item[:link] %></p> -->
   <img src="<%= item[:image_link] %>">
-<!-- link_to 'Edit', edit_user_fridge_path(@fridge.user, @fridge) -->
 <% end %>
-<br>
+  <br>
 <p>Kind regards</p>
-<br>
+  <br>
 <p>Fresh Meat Team</p>

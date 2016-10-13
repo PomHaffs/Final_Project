@@ -1,17 +1,21 @@
-<h1>Recipes</h1>
-
-<p>Here are the items going out of date: <br> <%= @items[0]%> <br> <%= @items[1]%> <br> <%= @items[2]%> </p>
-
-<p>...and here is what you could do with them</p>
-<% @recipe_data.each do |item| %>
-
-  <p><%= link_to item[:name], item[:link]  %></p>
-
-  <img src="<%= item[:image_link] %>">
-
-<% end %>
+<p id="notice"><%= notice %></p>
 
 <div class="links">
   <%= link_to 'Back', user_fridges_path %> |
-  <%= link_to 'Send Me an Email', user_fridges_path %>
+  <%= link_to 'Send Me an Email', recipe_email_path, :id => "send-email", :remote => true %>
+</div>
+
+<div class="container_display">
+  <h1>Recipes</h1>
+
+  <p>Here are the items going out of date: <br> <%= @items[0]%> <br> <%= @items[1]%> <br> <%= @items[2]%> </p>
+
+  <p>...and here is what you could do with them</p>
+  <% @recipe_data.each do |item| %>
+
+    <p><%= link_to item[:name], item[:link]  %></p>
+
+    <img src="<%= item[:image_link] %>">
+
+  <% end %>
 </div>

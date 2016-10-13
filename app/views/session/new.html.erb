@@ -1,14 +1,28 @@
-<h1>Login</h1>
+<p id="notice"><%= notice %></p>
 
-<%= form_tag login_path do %>
-  <p>
-    <%= label_tag :email %>
-    <%= email_field_tag :email, "", :required => true %>
-  </p>
-  <p>
-    <%= label_tag :password %>
-    <%= password_field_tag :password, "", :required => true %>
-  </p>
+<div class="links">
+  <%= link_to("Sign Up here", new_user_path) %>
+</div>
 
-  <%= submit_tag "Login" %>
-<% end %>
+<div id="title_bar">
+  <h1>Fresh Meat App</h1>
+  <p>An app to solve food wastage and save you $1000s</p>
+  <p>Enter your fridge contents and recieve an email with suggested recipes as items near their sell by date....simple.</p>
+</div>
+
+<div class="container_display">
+  <h1>Login to see your fridges</h1>
+
+  <%= form_tag login_path do %>
+    <p>
+      <%= label_tag :email %>  <br>
+      <%= email_field_tag :email, "", :required => true %>
+    </p>
+    <p>
+      <%= label_tag :password %> <br>
+      <%= password_field_tag :password, "", :required => true %>
+    </p>
+
+    <%= submit_tag "Login" %>
+  <% end %>
+</div>

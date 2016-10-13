@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  $("#send-email").on("ajax:success", function(event, data, status, xhr) {
+    var notice = data.response;
+    $("#notice").prepend(notice);
+  });
+
+});

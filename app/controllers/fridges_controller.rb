@@ -8,12 +8,17 @@ class FridgesController < ApplicationController
     @recipe_data = @user.get_recipes( @items )
   end
 
-  def send( callback_type = "" )
-    UserMail.send_recipe(User.find(params[:user_id]), @recipe_data).deliver_now
-  end
-
   def index
     @fridges = @current_user.fridges
+  end
+
+  def recipe_email( callback_type = "" )
+    @fridge = Fridge.find(params[:fridge_id])
+    @items = @fridge.fridge_items.limit(3).sort { |i| i.use_by_date }.reverse.map { |i| i.name }
+    @user = User.find(params[:user_id])
+    @recipe_data = @user.get_recipes( @items )
+    UserMail.send_recipe(User.find(params[:user_id]), @recipe_data).deliver_now
+    render :json => {response: "Email has been sent"}
   end
 
   def show

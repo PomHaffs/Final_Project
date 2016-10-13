@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/fridges/:fridge_id/display' => 'fridges#display', :as => "fridge_display"
 
+  get '/users/:user_id/fridges/:fridge_id/send_recipe' => 'fridges#recipe_email', :as => "recipe_email"
+
   resources :users do
     resources :fridges do
       resources :fridge_items do
@@ -16,6 +18,5 @@ Rails.application.routes.draw do
       end
     end
   end
-  # root "fridges#index"
 
 end
