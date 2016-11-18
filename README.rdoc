@@ -4,8 +4,10 @@
 Application storing food item from a virtual fridge. 
 Items stored in a CRUD database and ordered based upon Use-By-Date.
 User signs up to a mailer that sends an email selecting top three items that are going out of date next and provides a list of suggested recipes.
+
+##API
 Nokogiri used to steal recipes information from Taste.com website(thanks to them).
 
 ##Areas for development
 UI data entry needs to be automatic inorder to make this a viable idea.
-Extension og this into the iOS space.
+Extension of this into the iOS space.
